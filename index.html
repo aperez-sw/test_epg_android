@@ -81,6 +81,58 @@
                 animation-delay: 0.4s;
             }
         </style>
+          <script>
+    // Tu código de JavaScript
+    document.addEventListener('DOMContentLoaded', () => {
+      const handleTvRemote = (event) => {
+        const { action } = event.detail;
+
+    switch (action) {
+          case 'UP':
+            alert('¡Se presionó el botón UP!');
+            console.log('Up pressed');
+            break;
+          case 'DOWN':
+            alert('¡Se presionó el botón DOWN!');
+            console.log('Down pressed');
+            break;
+          case 'LEFT':
+            alert('¡Se presionó el botón LEFT!');
+            console.log('Left pressed');
+            break;
+          case 'RIGHT':
+            alert('¡Se presionó el botón RIGHT!');
+            console.log('Right pressed');
+            break;
+          case 'SELECT':
+            alert('¡Se presionó el botón SELECT!');
+            console.log('Select pressed');
+            break;
+          case 'BACK':
+            alert('¡Se presionó el botón BACK!');
+            console.log('Back pressed');
+            break;
+          default:
+            alert('¡Acción no reconocida!');
+            console.log('Unknown action');
+        }
+      };
+
+      // Añadir el evento a la ventana
+      window.addEventListener('tvremote', handleTvRemote);
+
+      // Si quieres eliminar el listener en algún momento, puedes hacerlo con:
+      // window.removeEventListener('tvremote', handleTvRemote);
+    });
+
+    // Para disparar eventos personalizados (simulando el control remoto)
+    function dispatchTvRemoteAction(action) {
+      const event = new CustomEvent('tvremote', {
+        detail: { action }
+      });
+      window.dispatchEvent(event);
+    }
+  </script>
     </head>
 
     <body>
