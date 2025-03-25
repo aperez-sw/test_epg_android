@@ -81,8 +81,58 @@
                 animation-delay: 0.4s;
             }
         </style>
-            <script>
-    // Tu código de JavaScript
+    </head>
+
+    <body>
+        <div class="button-container">
+            <button id="button03" class="fancy-button button-1">
+                <i class="fas fa-cloud"></i>
+                <span>Match 01</span>
+            </button>
+            <button id="button03" class="fancy-button button-2">
+                <i class="fas fa-bolt"></i>
+                <span>Match 02</span>
+            </button>
+            <button id="button03" class="fancy-button button-3">
+                <i class="fas fa-cog"></i>
+                <span>Match 03</span>
+            </button>
+        </div>
+
+        <script>
+            let buttons = document.getElementsByClassName('fancy-button');
+            for (let i = 0; i < buttons.length; i++) {
+                buttons[i].addEventListener('click', function () {
+                    let id = this.id;
+                    let url = '';
+                    switch (id) {
+                        case 'button01':
+                            url = 'https://tu-endpoint.com/api/match01';
+                            break;
+                        case 'button02':
+                            url = 'https://tu-endpoint.com/api/match02';
+                            break;
+                        case 'button03':
+                            url = 'https://tu-endpoint.com/api/match03';
+                            break;
+                        default:
+                            url = 'https://tu-endpoint.com/api';
+                            break;
+                    }
+                    fetch(url)
+                        .then(response => response.json())
+                        .then(data => {
+                            console.log(data);
+                            alert("Llamada exitosa al endpoint!");
+                        })
+                        .catch(error => {
+                            console.error('Error:', error);
+                            alert("Hubo un error al llamar al endpoint.");
+                        });
+                });
+            }
+
+            // Tu código de JavaScript
     document.addEventListener('DOMContentLoaded', () => {
       const handleTvRemote = (event) => {
         const { action } = event.detail;
@@ -141,57 +191,6 @@
     setTimeout(() => {
       dispatchTvRemoteAction('SELECT');  // Simulamos que se presiona 'SELECT' después de 4 segundos
     }, 4000);
-  </script>
-    </head>
-
-    <body>
-        <div class="button-container">
-            <button id="button03" class="fancy-button button-1">
-                <i class="fas fa-cloud"></i>
-                <span>Match 01</span>
-            </button>
-            <button id="button03" class="fancy-button button-2">
-                <i class="fas fa-bolt"></i>
-                <span>Match 02</span>
-            </button>
-            <button id="button03" class="fancy-button button-3">
-                <i class="fas fa-cog"></i>
-                <span>Match 03</span>
-            </button>
-        </div>
-
-        <script>
-            let buttons = document.getElementsByClassName('fancy-button');
-            for (let i = 0; i < buttons.length; i++) {
-                buttons[i].addEventListener('click', function () {
-                    let id = this.id;
-                    let url = '';
-                    switch (id) {
-                        case 'button01':
-                            url = 'https://tu-endpoint.com/api/match01';
-                            break;
-                        case 'button02':
-                            url = 'https://tu-endpoint.com/api/match02';
-                            break;
-                        case 'button03':
-                            url = 'https://tu-endpoint.com/api/match03';
-                            break;
-                        default:
-                            url = 'https://tu-endpoint.com/api';
-                            break;
-                    }
-                    fetch(url)
-                        .then(response => response.json())
-                        .then(data => {
-                            console.log(data);
-                            alert("Llamada exitosa al endpoint!");
-                        })
-                        .catch(error => {
-                            console.error('Error:', error);
-                            alert("Hubo un error al llamar al endpoint.");
-                        });
-                });
-            }
         </script>
     </body>
 
