@@ -81,13 +81,13 @@
                 animation-delay: 0.4s;
             }
         </style>
-          <script>
+            <script>
     // Tu código de JavaScript
     document.addEventListener('DOMContentLoaded', () => {
       const handleTvRemote = (event) => {
         const { action } = event.detail;
 
-    switch (action) {
+        switch (action) {
           case 'UP':
             alert('¡Se presionó el botón UP!');
             console.log('Up pressed');
@@ -132,6 +132,15 @@
       });
       window.dispatchEvent(event);
     }
+
+    // Ejemplo para disparar eventos
+    setTimeout(() => {
+      dispatchTvRemoteAction('UP');  // Simulamos que se presiona 'UP' después de 2 segundos
+    }, 2000);
+
+    setTimeout(() => {
+      dispatchTvRemoteAction('SELECT');  // Simulamos que se presiona 'SELECT' después de 4 segundos
+    }, 4000);
   </script>
     </head>
 
