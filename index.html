@@ -132,7 +132,6 @@
                 });
             }
 
-            // Tu código de JavaScript
     document.addEventListener('DOMContentLoaded', () => {
       const handleTvRemote = (event) => {
         const { action } = event.detail;
@@ -168,14 +167,12 @@
         }
       };
 
-      // Añadir el evento a la ventana
       window.addEventListener('tvremote', handleTvRemote);
 
-      // Si quieres eliminar el listener en algún momento, puedes hacerlo con:
+      // para eliminar el listener
       // window.removeEventListener('tvremote', handleTvRemote);
     });
 
-    // Para disparar eventos personalizados (simulando el control remoto)
     function dispatchTvRemoteAction(action) {
       const event = new CustomEvent('tvremote', {
         detail: { action }
